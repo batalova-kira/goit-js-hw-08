@@ -46,8 +46,9 @@ restoreFormData()
 
 function restoreFormData() {
     let savedFormData = localStorage.getItem(STORAGE_KEY);
-    if (savedFormData){
-        refs.email.value = formData.email;
-        refs.message.value = formData.message;
+    if (savedFormData) {
+        const data = JSON.parse(savedFormData);
+        refs.email.value = data.email || "";
+        refs.message.value = data.message || "";
     }
 }
