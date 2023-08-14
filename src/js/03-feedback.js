@@ -45,8 +45,9 @@ function clearFormData() {
 restoreFormData()
 
 function restoreFormData() {
-  if (formData.email || formData.message) {
-      refs.email.value = formData.email;
-      refs.message.value = formData.message;
-  }
+    let savedFormData = localStorage.getItem(STORAGE_KEY);
+    if (savedFormData){
+        refs.email.value = formData.email;
+        refs.message.value = formData.message;
+    }
 }
