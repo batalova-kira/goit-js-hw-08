@@ -14,6 +14,9 @@ refs.message.addEventListener('input', throttle(handlerInput, 500));
 
 function handlerForm(e) {
     e.preventDefault();
+    if (refs.email.value === '' || refs.message.value === '') {
+        return alert('Please fill in all the fields!');
+    }
     console.log(formData);
     clearFormData();
     e.currentTarget.reset();
